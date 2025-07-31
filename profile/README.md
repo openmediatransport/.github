@@ -23,12 +23,22 @@ A list of bandwidth requirements for common resolutions is below. To work out fo
 |-------------------------| --------| --------- |
 | 2160p60 | High | 600mbps |
 | 2160p60 | Medium | 400mbps |
+| 2160p60 | Low | 200mbps |
+| 2160p30 | High | 300mbps |
+| 2160p30 | Medium | 200mbps |
+| 2160p30 | Low | 100mbps |
 | 1080p60 | High | 260mbps |
 | 1080p60 | Medium | 200mbps |
+| 1080p60 | Low | 86mbps |
 | 1080p30 | High | 130mbps |
 | 1080p30 | Medium | 100mbps |
+| 1080p60 | Low | 43mbps |
 | 720p60 | High | 136mbps |
-| 720p30 | Medium | 68mbps |
+| 720p60 | Medium | 68mbps |
+| 720p60 | Low | 45mbps |
+| 720p30 | High | 68mbps |
+| 720p30 | Medium | 34mbps |
+| 720p30 | Low | 22.5mbps |
 
 * Existing support for codec in FFmpeg (VMX aka vMix Codec), enabling ease of adoption into existing workflows.
 * Royalty and patent free
