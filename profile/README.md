@@ -7,20 +7,32 @@ It is also completely free and open source!
 
 ## Design Goals
 
-* Completely free, open source, and royalty free under a permissive MIT license
-* Simple and easy to implement, with cross platform code available for most platforms
-* Optimized to run in software on commodity hardware
+* Completely free, open source, and royalty free under the permissive MIT license
 * High throughput, allowing for multiple high-definition feeds over a standard gigabit network
 * Ultra-fast, low latency codec with less than a frame of delay
+* Simple and easy to implement, with cross platform code available for most platforms (Windows + MacOS + Linux)
+* Optimized to run in software on commodity hardware
 
 ## Features
 
 ### Video
 * 4:2:2 video codec with Alpha offers high quality, extremely low latency and reasonable bitrates over a LAN. 
-(1080p60 @ ~200Mbps with HQ profile. Optionally lower bitrate profiles available)
+A list of bandwidth requirements for common resolutions is below. To work out for different frame rates, 30fps will always be half the bandwidth of 60fps and so on.
+
+| Resolution / Frame Rate | Quality | Bandwidth |
+|-------------------------| --------| --------- |
+| 2160p60 | High | 600mbps |
+| 2160p60 | Medium | 400mbps |
+| 1080p60 | High | 260mbps |
+| 1080p60 | Medium | 200mbps |
+| 1080p30 | High | 130mbps |
+| 1080p30 | Medium | 100mbps |
+| 720p60 | High | 136mbps |
+| 720p30 | Medium | 68mbps |
+
 * Existing support for codec in FFmpeg (VMX aka vMix Codec), enabling ease of adoption into existing workflows.
 * Royalty and patent free
-* Optimized code for both NEON and Intel SIMD instructions, allows 1080p60 encode and decode on a single CPU core.
+* Optimized code for both NEON and Intel SIMD instructions, allows multiple 1080p60 encode and decodes on a single CPU core.
 
 ### Audio
 * Uncompressed 32 bit floating point audio of up to 32 channels
@@ -35,3 +47,6 @@ It is also completely free and open source!
 
 ### Discovery
 * Sources published on the network using DNS Service Discovery (DNS-SD), with robust OS support on Mac, Linux and Windows.
+* Optional Discovery Server where multicast is not available.
+
+
