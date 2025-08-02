@@ -18,6 +18,9 @@ It is also completely free and open source!
     * [Send](#send)
     * [Receive](#receive)
     * [Discovery](#discovery-1)
+* [Developer Guide](#developer-guide)
+    * [Libraries](#libraries)
+    * [Quick Examples C#](#quick-examples-c)
 
 ## Design Goals
 
@@ -122,7 +125,7 @@ A more in depth overview of its features and functionality can be found in the l
 
 Add a reference to libomtnet.dll to your project and make sure libvmx.dll (Windows) libvmx.dylib (MacOS) or libvmx.so (Linux) is in the same directory as the application.
 
-## Sending video
+**Sending Video**
 
 Create a new OMTSend object, specifying the name and optionally the video quality (which in most cases should be left as Default).
 
@@ -162,7 +165,49 @@ while (true)
 }
 ```
 
-## Receiving Video
+**Receiving Video**
+
+Get an instance of the OMTDiscovery object and wait a few seconds for the sources on the network to be discovered.
+
+```
+OMTDiscovery discovery = OMTDiscovery.GetInstance();
+Thread.Sleep(5000);
+string[] addresses = discovery.GetAddresses();
+```
+
+Search through the addresses finding a similar match to the source we created in our Sending Video example.
+
+```
+string foundAddress = "";
+foreach (string address in addresses)
+{
+    if (address.Contains("My Sender"))
+    {
+        foundAddress = address;
+        break;
+    }
+}
+```
+
+Create a new OMTReceive object, specifying we wish to receive video and audio, and that the video should be in UYVY format.
+
+```
+OMTReceive myReceiver = new OMTReceive(foundAddress, OMTFrameType.Video | OMTFrameType.Audio, OMTPreferredVideoFormat.UYVY, OMTReceiveFlags.None);
+```
+
+Create a loop to receive the video within a OMTMediaFrame and write to debug information about the frames that arrive.
+
+```
+OMTMediaFrame frame = new OMTMediaFrame();
+while (true)
+{
+    if (myReceiver.Receive(OMTFrameType.Video, 1000, ref frame))
+    {
+        Debug.WriteLine("Frame Received of size " + frame.Width + "x" + frame.Height + " and timestamp " + frame.Timestamp);
+    }
+}
+```
+
 
 
 
