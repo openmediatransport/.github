@@ -5,6 +5,14 @@ It has been designed to support multiple high-definition A/V feeds on a standard
 
 It is also completely free and open source!
 
+## Contents
+
+* [Design Goals](#design-goals)
+* [Features](#features)
+    * [Video](#video)
+    * [Audio](#audio)
+    * [Network](#network)
+
 ## Design Goals
 
 * Completely free, open source, and royalty free under the permissive MIT license
