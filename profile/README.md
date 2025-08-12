@@ -110,8 +110,17 @@ This includes ready to use libraries for both .NET apps and any apps that can us
 
 https://github.com/openmediatransport/libomtnet/releases
 
-For .NET add a reference to libomtnet to your application and make sure to also include the libvmx library in the same directory.
-For C-style applications, include the libomt.h header, include libomt and libvmx with your app and refer to the comments for more information on how to use each function.
+**.NET / C# / VB.NET**
+
+Add a reference to libomtnet to your application and make sure to also include the libvmx library in the same directory as the app.
+
+Basic code examples can be found here: [Quick Examples C#](#quick-examples-c)
+
+**C/C++ and other C-style languages**
+
+Include the libomt.h header, include libomt and libvmx with your app.
+
+The header file also includes comments that describe each function in more detail.
 
 ### Libraries
 
