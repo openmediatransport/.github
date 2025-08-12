@@ -10,7 +10,7 @@ https://github.com/openmediatransport/libomtnet/releases
 
 These are free tools provided by OMT contributors.
 
-### vMix
+### vMix (Windows)
 
 * vMix Desktop Capture for OMT
 * OMT Viewer
@@ -19,7 +19,7 @@ These are free tools provided by OMT contributors.
 
 [Download Now](tbd)
 
-### SIENNA
+### SIENNA (MacOS)
 
 * OMT Signal Generator
 * OMT Video Monitor
