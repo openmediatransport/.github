@@ -5,6 +5,8 @@ It has been designed to support multiple high-definition A/V feeds on a standard
 
 It is also completely free and open source!
 
+If you're just looking to to get started quickly with developing for OMT. See the [Getting Started](#getting-started) section below.
+
 ## Contents
 
 * [Design Goals](#design-goals)
@@ -19,6 +21,7 @@ It is also completely free and open source!
     * [Receive](#receive)
     * [Discovery](#discovery-1)
 * [Developer Guide](#developer-guide)
+    * [Getting Started](#getting-started)
     * [Libraries](#libraries)
     * [Quick Examples C#](#quick-examples-c)
 
@@ -99,6 +102,14 @@ Discovery can use either DNS-SD are multicast UDP discovery protocol, or a dedic
 Send names are in the format **DEVICENAME (Source Name)** where DEVICENAME is typically either the name of the computer (for computer sources) or a unique device name (in the case of hardware encoders).
 
 ## Developer Guide
+
+### Getting Started
+
+The simplest way to start development is to download the prebuild binaries on the libomtnet releases page.
+This includes ready to use libraries for both .NET apps and any apps that can use C-style exports.
+
+For .NET add a reference to libomtnet to your application and make sure libvmx is also in the same directory.
+For C-style applications, include the libomt.h header and refer to the comments for more information on how to use each function.
 
 ### Libraries
 
