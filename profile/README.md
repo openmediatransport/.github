@@ -5,7 +5,7 @@ It has been designed to support multiple high-definition A/V feeds on a standard
 
 It is also completely free and open source!
 
-If you're just looking to to get started quickly with developing for OMT. See the [Getting Started](#getting-started) section below.
+If you're just looking to get started quickly with developing for OMT. See the [Getting Started](#getting-started) section below.
 
 ## Contents
 
