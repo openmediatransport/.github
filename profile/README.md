@@ -108,8 +108,10 @@ Send names are in the format **DEVICENAME (Source Name)** where DEVICENAME is ty
 The simplest way to start development is to download the prebuild binaries on the libomtnet releases page.
 This includes ready to use libraries for both .NET apps and any apps that can use C-style exports.
 
-For .NET add a reference to libomtnet to your application and make sure libvmx is also in the same directory.
-For C-style applications, include the libomt.h header and refer to the comments for more information on how to use each function.
+https://github.com/openmediatransport/libomtnet/releases
+
+For .NET add a reference to libomtnet to your application and make sure to also include the libvmx library in the same directory.
+For C-style applications, include the libomt.h header, include libomt and libvmx with your app and refer to the comments for more information on how to use each function.
 
 ### Libraries
 
