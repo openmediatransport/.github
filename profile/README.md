@@ -20,6 +20,9 @@ If you're just looking to get started quickly with developing for OMT. See the [
     * [Send](#send)
     * [Receive](#receive)
     * [Discovery](#discovery-1)
+* [Advanced Concepts](#advanced-concepts)
+    * [Video Quality Control](#video-quality-control)
+    * [Networking / Firewall Requirements](#networking--firewall-requirements)   
 * [Developer Guide](#developer-guide)
     * [Getting Started](#getting-started)
     * [Libraries](#libraries)
@@ -88,8 +91,6 @@ A list of bandwidth requirements for common resolutions is below. To work out fo
 
 Send is a single source that can send video, audio and metadata to multiple receivers on a network.
 
-Send listens on a TCP port in the range 6400-6600 by default.
-
 ### Receive
 
 Receive is a single end point that connects to a Send source to receive the video, audio and metadata from that source.
@@ -101,6 +102,30 @@ Discovery is how a **Send** publishes its name on the network so any Receive can
 Discovery can use either DNS-SD are multicast UDP discovery protocol, or a dedicated Discovery Server using TCP where multicast is not possible.
 
 Send names are in the format **DEVICENAME (Source Name)** where DEVICENAME is typically either the name of the computer (for computer sources) or a unique device name (in the case of hardware encoders).
+
+Discovery Server documention can be found at https://github.com/openmediatransport/OMTDiscoveryServer
+
+## Advanced Concepts
+
+### Video Quality Control
+
+A Sender can choose from three quality levels for video: Low, Medium and High. (See the [Features / Video](#video) section for the bandwidth requirements of each).
+
+If set to Default, the Sender will initially select Medium quality.
+
+In this default mode, Receivers are permitted to request a preferred quality via the **Suggested Quality** API.
+
+The maximum quality selected amongst all receivers will then be selected by the Sender.
+
+### Networking / Firewall Requirements
+
+Open Media Transport exclusively sends audio and video via TCP. Each sender listens on a single port and each receiver may open up to two connections to that sender for separate audio and video streams.
+
+The sender port range is between 6600 to 6800 by default.
+
+DNS-SD discovery is via the operating system built in service listening on UDP port 5353 (Bonjour on Mac, Avahi on Linux).
+
+Alternatively when using the Discovery Server, all communication is via TCP, with the server listening on port 6399 by default.
 
 ## Developer Guide
 
