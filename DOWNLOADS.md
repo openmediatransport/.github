@@ -6,7 +6,7 @@ This contains the latest binary releases of libomt, libomtnet and libvmx for Win
 
 https://github.com/openmediatransport/libomtnet/releases
 
-## Open Media Transport Plugin for Windows and MacOS
+## Open Media Transport Plugin for OBS (Windows and MacOS)
 
 https://github.com/openmediatransport/omtplugin/releases
 
