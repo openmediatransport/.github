@@ -24,6 +24,7 @@ If you're just looking to get started quickly with developing for OMT. See the [
     * [Receive](#receive)
     * [Discovery](#discovery-1)
 * [Advanced Concepts](#advanced-concepts)
+    * [Alpha Channel and Video Formats](#alpha-channel-and-video-formats)
     * [Video Quality Control](#video-quality-control)
     * [Networking / Firewall Requirements](#networking--firewall-requirements)   
 * [Developer Guide](#developer-guide)
@@ -109,6 +110,59 @@ Send names are in the format **DEVICENAME (Source Name)** where DEVICENAME is ty
 Discovery Server documention can be found at https://github.com/openmediatransport/OMTDiscoveryServer
 
 ## Advanced Concepts
+
+### Alpha Channel and Video Formats
+
+A variety of video pixel formats are supported including many with alpha channel support.
+
+All of these formats are encoded using the VMX video codec prior to sending over the network.
+
+**Video Formats**
+**Send/Receive**
+* UYVY = 8bit 4:2:2
+* UYVA = 8bit 4:2:2:4 (UYVY followed by alpha plane)
+* BGRA = 8bit 4:4:4
+* P216 = 16bit Planar 4:2:2
+* PA16 = 16bit Planar 4:2:2:4 (P216 followed by a 16bit alpha plane)
+  
+**Send Only**
+
+These are additional formats implemented as a convenience for senders, and are upconverted to 4:2:2:4 internally:
+* YUY2 = 8bit 4:2:2
+* NV12 = 8bit Planar 4:2:0
+* YV12 = 8bit Planar 4:2:0
+
+**Sending Alpha**
+
+Use the BGRA, UYVA or PA16 pixel formats when sending video with an alpha channel.
+
+The OMTMediaFrame.Flags also needs to be set to Alpha and optionally PreMultiplied if the pixels are premultiplied by alpha.
+
+**Sending 16bit/10bit**
+
+Use the P216 or PA16 pixel formats. To use 10bit, simply ensure the 10bits is placed within the most significant bits of each 16bit pixel.
+
+When these formats are used, OTM will automatically set the HighBitDepth flag on each frame to let the decoder know high bit depth data is available.
+
+**Receiving Alpha**
+
+Set the preferred video format on the receiver to one that includes any of the supports alpha channel formats: BGRA, UYVA or PA16.
+
+Where more than one format is possible, OMT will automatically select the format with alpha only when necessary and set the appropriate flags on the media frame.
+
+**Receiving 16bit/10bit**
+
+Set the preferred video format on the receiver to one that includes P216 or PA16.
+
+Where more than one format is possible, OMT will automatically select the 16bit formats only if the HighBitDepth flag was sent or the sender sent using one of the 16bit formats.
+
+This is an important optimisation, as it takes significantly more system resources to encode and decode 16bit, so it is not used when it is known the source is only 8bit.
+
+**Interlaced Video**
+
+Interlaced video is supported with two interleaved fields stored in a single frame with the top field first.
+
+Remember to set the OMTMediaFrame.Flags to Interlaced when sending interlaced content, as the encoder handles these frames differently.
 
 ### Video Quality Control
 
