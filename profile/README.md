@@ -178,7 +178,7 @@ The maximum quality selected amongst all receivers will then be selected by the 
 
 Open Media Transport exclusively sends audio and video via TCP. Each sender listens on a single port and each receiver may open up to two connections to that sender for separate audio and video streams.
 
-The sender port range is between 6600 to 6800 by default.
+The sender port range is between 6400 to 6600 by default.
 
 DNS-SD discovery is via the operating system built in service listening on UDP port 5353 (Bonjour on Mac, Avahi on Linux).
 
