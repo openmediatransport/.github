@@ -21,7 +21,7 @@ These are free tools provided by OMT contributors.
 * OMT Matrix Router
 * OMT Settings Manager
 
-[Download Now](https://www.vmix.com/download/vmix-omt-tools-windows.zip)
+[Download Now](https://cdn.vmix.com/download/vmix-omt-tools-windows.zip)
 
 ### SIENNA (MacOS) (https://www.sienna-tv.com)
 
