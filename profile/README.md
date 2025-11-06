@@ -53,7 +53,7 @@ A list of bandwidth requirements for common resolutions is below. To work out fo
 | 2160p60 | Medium | 300mbps |
 | 2160p60 | Low | 200mbps |
 | 2160p30 | High | 300mbps |
-| 2160p30 | Medium | 200mbps |
+| 2160p30 | Medium | 150mbps |
 | 2160p30 | Low | 100mbps |
 | 1080p60 | High | 260mbps |
 | 1080p60 | Medium | 200mbps |
