@@ -24,6 +24,7 @@ If you're just looking to get started quickly with developing for OMT. See the [
     * [Receive](#receive)
     * [Discovery](#discovery-1)
 * [Advanced Concepts](#advanced-concepts)
+    * [Routing](#routing)   
     * [Alpha Channel and Video Formats](#alpha-channel-and-video-formats)
     * [Video Quality Control](#video-quality-control)
     * [Networking / Firewall Requirements](#networking--firewall-requirements)   
@@ -110,6 +111,18 @@ Send names are in the format **DEVICENAME (Source Name)** where DEVICENAME is ty
 Discovery Server documention can be found at https://github.com/openmediatransport/OMTDiscoveryServer
 
 ## Advanced Concepts
+
+### Routing
+
+Senders can optionally be configured to redirect receivers to a different sender on the fly.
+
+This allows for advanced routing scenarios where one or more virtual senders can be configured to show different sources without needing to change or adjust the receiver.
+
+A receiver will always connect directly to the desired sender for direct video/audio. It will also maintain a connection to the original virtual sender in order to receive source changes.
+
+This means a router app need only basic network connectivity to facilite connections, as no high bandwidth data will be transferred to it.
+
+The free app OMT Matrix Router for Windows and OMT Router for MacOS demonstrate this functionality.
 
 ### Alpha Channel and Video Formats
 
